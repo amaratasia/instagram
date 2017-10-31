@@ -43,7 +43,6 @@ module Instagram
     #   client.get_access_token('88fb89ab65454da2a06f2c6dacd09436')
     #   # => '1313345.3fedf64.a0fcb7f40e02fe3da50500'
     def get_access_token(code=nil)
-      unless @access_token
         params = { 
           :client_id => @client_id,
           :client_secret => @client_secret,
@@ -54,9 +53,6 @@ module Instagram
         response = post "https://api.instagram.com/oauth/access_token", {}, params, { 'Content-type' => 'application/x-www-form-urlencoded' }
         @access_token = response['access_token']
         @access_token
-      else
-        @access_token
-      end
     end
 
     private
