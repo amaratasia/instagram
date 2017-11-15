@@ -67,7 +67,7 @@ module Instagram
       end
 
       def auth_params
-        @access_token ? { :access_token => @access_token } : { :client_id => @client_id }
+          { :client_id => @client_id }
       end
 
   end
